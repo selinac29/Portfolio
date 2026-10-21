@@ -1,0 +1,1778 @@
+/* =========================================================
+   Selina Chu — Portfolio home page
+   Built from Figma "portfolio-v1" › Home Page (138:2996)
+
+   Units: rem everywhere (1rem = 16px at the browser's default text size),
+   except
+   • illustrations drawn in Figma coordinates and scaled as one picture by JS
+     (hero girl, bio shapes, card mockups, About-me girl, falling shapes) –
+     they stay px so their parts never drift apart;
+   • 1–2px hairlines (borders, outlines).
+
+   Breakpoints (rem, so they follow the browser's text size; js/main.js uses the same):
+     Phone    ≤ 37.4375rem  (~320–599px)
+     Tablet   37.5–63.9375rem (~600–1023px)
+     Desktop  ≥ 64rem        (1024px and up) – the Figma design
+   ========================================================= */
+
+:root {
+  --bg: #f5ebe0;
+  --ink: #000;
+  --ink-soft: #383636;
+  --muted: #4f5050;
+  --logo: #413c3c;
+  --accent-red: #ab0001;
+  --card: #fff;
+  --about-yellow: #ffda8d;
+  --input-bg: #ffdfd0;
+  --placeholder: #595851;
+  --button: #e5af6e;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-type: "Special Elite", "Courier New", monospace;
+  --font-title: "Crimson Pro", Georgia, serif;
+  --font-serif: "Libertinus Serif", Georgia, serif;
+  --font-ui: "DM Sans", var(--font-sans);
+
+  --page-max: 80rem;
+  /* one gap for sneak peek → selected projects → about me */
+  --section-gap: clamp(5rem, 16.64vw, 13.3125rem);
+  /* same heading → card gap for Selected projects and About me (Figma: 5.5625rem) */
+  --heading-gap: clamp(2rem, 6.95vw, 5.5625rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img {
+  display: block;
+  max-width: none;
+}
+a {
+  color: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page {
+  position: relative;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  overflow-x: clip;
+}
+/* hero, bio and sneak peek span the full screen width */
+.page--bleed {
+  max-width: none;
+}
+
+/* ---------- Scaled "stage" helper ----------
+   Illustration-heavy blocks are authored at design size (px) inside
+   .stage and scaled to the wrapper width by JS (--s). --x/--y crop. */
+.stage-wrap {
+  --x: 0;
+  --y: 0;
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--w) / var(--h);
+}
+.stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--fw) * 1px);
+  height: calc(var(--fh) * 1px);
+  transform-origin: 0 0;
+  transform: scale(var(--s, 1))
+    translate(calc(var(--x) * -1px), calc(var(--y) * -1px));
+}
+.L {
+  position: absolute;
+}
+.fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: clamp(2.125rem, 3.9vw, 3.125rem);
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* =================== HERO =================== */
+/* Full-screen hero. JS sets --hs (scale), --hx/--hy (offset of the Figma
+   page origin) so the table's bottom edge sits on the screen's bottom edge. */
+.hero {
+  --hs: 1;
+  --hx: 0px;
+  --hy: 0px;
+  --hgx: var(--hx);
+  position: relative;
+  z-index: 3;
+  height: 100vh;
+  height: 100svh;
+  min-height: 32.5rem;
+  overflow-x: clip;
+}
+
+.site-header {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.site-header-inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  height: 5.625rem;
+  padding: 2.5625rem 4.1875rem 0 4rem; /* 'selina' at x 64, aligned with the case-study '←back' text */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.site-header-inner {
+  justify-content: flex-end;
+}
+/* 'selina': its left edge scales with the screen (64px of 1280 = 5vw),
+   aligned with the case-study '←back' text; the nav stays in the centred frame */
+.logo {
+  position: absolute;
+  left: 5vw;
+  top: 2.5625rem;
+  font-weight: 700;
+  font-size: 1.5625rem;
+  color: var(--logo);
+  text-decoration: none;
+  line-height: normal;
+  padding-top: 0.375rem;
+}
+/* nav: mirrors 'selina' — its RIGHT edge sits 5vw from the screen's right edge */
+.nav {
+  position: absolute;
+  right: 5vw;
+  top: 2.5625rem;
+  display: flex;
+  gap: 2.8125rem;
+  padding-top: 0.83688rem;
+  font-family: var(--font-type);
+  font-size: 1.25rem;
+}
+.nav a {
+  text-decoration: none;
+  position: relative;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.1875rem;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.nav a:hover::after,
+.nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.hero-title {
+  position: absolute;
+  z-index: 4;
+  left: calc(var(--hx) + 694.5px * var(--hs));
+  top: calc(var(--hy) + 317px * var(--hs));
+  width: calc(513px * var(--hs));
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: calc(45px * var(--hs));
+  line-height: 1.303;
+  color: var(--accent-red);
+  text-align: center;
+}
+.hero-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hero-layer {
+  position: absolute;
+  left: var(
+    --hgx
+  ); /* girl + hands: shifted left of the headline's frame for breathing room */
+  top: var(--hy);
+  width: 1280px;
+  height: 1010px;
+  transform-origin: 0 0;
+  transform: scale(var(--hs));
+}
+.hero-frame {
+  position: absolute;
+  left: 1px;
+  top: 5px;
+  width: 1279px;
+  height: 787px;
+}
+/* table bar: Figma y 763→839, stretched to the full screen width */
+.hero-table-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--hy) + 763px * var(--hs));
+  height: calc(76px * var(--hs) + 1px);
+  background: #664b31;
+}
+.hero-hands {
+  left: -1px;
+  top: 556px;
+  width: 1280px;
+  height: 448.092px;
+}
+
+/* =================== BIO =================== */
+/* Full width. The 1280×685 Figma frame is scaled (--s) and centred (--bx);
+   the shape groups can drift past it to float at the screen edges. */
+.bio {
+  --s: 1;
+  --bx: 0px;
+  position: relative;
+  z-index: 1;
+  height: calc(685px * var(--s));
+  overflow-x: clip;
+}
+.bio-stage {
+  position: absolute;
+  left: var(--bx);
+  top: 0;
+  width: 1280px;
+  height: 685px;
+  transform-origin: 0 0;
+  transform: scale(var(--s));
+}
+.bio-computer {
+  left: 537px;
+  top: 467px;
+  width: 175px;
+  height: 149px;
+}
+.bio-computer img {
+  position: absolute;
+  left: -50px;
+  top: -30px;
+  width: 275px;
+  height: 201px;
+}
+.bio-text {
+  position: absolute;
+  left: calc(50% - 0.5px);
+  top: 175px;
+  transform: translateX(-50%);
+  width: max(605px, calc(21.25rem / var(--s, 1)));
+  font-weight: 500;
+  font-size: max(45px, calc(1.25rem / var(--s, 1)));
+  line-height: 1.236;
+  color: var(--ink-soft);
+  text-align: center;
+}
+.bio-text > span {
+  display: block;
+  margin-bottom: 6px;
+}
+.bio-hello {
+  font-style: italic;
+}
+.uc {
+  text-transform: uppercase;
+}
+.bio-right {
+  left: 537px;
+  top: 55px;
+  width: 428.476px;
+  height: 487.374px;
+  will-change: transform;
+}
+.bio-left {
+  left: -32px;
+  top: 35px;
+  width: 672px;
+  height: 455px;
+  will-change: transform;
+}
+.bio-left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 677.515px;
+  height: 455px;
+}
+.float-a {
+  animation: float 6s ease-in-out infinite;
+}
+.float-b {
+  animation: float 7s ease-in-out -2s infinite reverse;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-1rem) rotate(2deg);
+  }
+}
+
+/* =================== SNEAK PEAK =================== */
+.sneak {
+  /* tiles scale with the page like the rest of the content: 357.5px of the
+     1280px Figma frame (27.93vw), never bigger than at 1280, 144px min on phones */
+  --tile: clamp(9rem, 27.93vw, 22.34375rem);
+  --gap: clamp(0.75rem, 2.75vw, 2.2rem);
+  margin-top: clamp(3rem, 8.05vw, 6.4375rem);
+  padding-top: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+}
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-group {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--gap);
+  padding-right: var(--gap);
+}
+.marquee-group li {
+  width: var(--tile);
+  height: var(--tile);
+  flex: none;
+}
+.marquee-group li.tall {
+  height: calc(var(--tile) * 1.25);
+}
+.marquee-group img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =================== SELECTED PROJECTS =================== */
+.selected {
+  margin: var(--section-gap) auto 0;
+  max-width: 74.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--heading-gap);
+}
+.project-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* cards follow each other closely; the next one is visible below */
+}
+/* Heading + first card = one sticky block (the heading stays on top of the first
+   card); cards 2–4 stop over the first card. Tops are set by JS. */
+.project-first {
+  position: sticky;
+  top: var(--stick-top, 1.25rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--heading-gap);
+}
+.project-first > .project {
+  position: relative;
+  top: auto;
+}
+/* Stacked cards: each one sticks, the next slides up over it (JS adds the
+   depth scale/dim of the cards underneath and sets --stick-top). */
+.project {
+  position: sticky;
+  top: var(--stick-top, 5.625rem);
+  width: 100%;
+  background: var(--card);
+  overflow: hidden;
+  transform-origin: 50% 0;
+  box-shadow: 0 -0.375rem 1.875rem rgba(84, 60, 35, 0.1);
+  will-change: transform;
+}
+.project.r20 {
+  border-radius: 1.25rem;
+}
+/* whole card is a link to its case study */
+.card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: inherit;
+}
+.project.is-linked {
+  cursor: pointer;
+}
+
+/* Card hover: the mockup lifts off the card.
+   (Uses the individual translate/rotate properties so it stacks on top of the
+   mockups' own transforms and the card-stack scale.) */
+.mockup {
+  transition:
+    translate 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    rotate 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.45s ease;
+}
+.project:hover .mockup,
+.project:focus-within .mockup {
+  translate: 0 -0.875rem;
+  rotate: -1.5deg;
+  filter: drop-shadow(0 1.375rem 1.625rem rgba(84, 60, 35, 0.28));
+}
+.project:hover .magazine-wrap.mockup {
+  rotate: 1.5deg;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mockup {
+    transition: none;
+  }
+}
+.project.r30 {
+  border-radius: 1.25rem; /* all project cards use 20px corners */
+}
+.project-visual {
+  --w: 1188;
+  --h: 558;
+  overflow: hidden;
+}
+
+.project-text {
+  position: absolute;
+  left: 6.31%;
+  top: 56.81%;
+  width: 36.36%;
+  display: flex;
+  flex-direction: column;
+  gap: calc(1.25rem * var(--s, 1));
+  line-height: normal;
+}
+.project-text h3 {
+  font-size: max(1.25rem, calc(2.1875rem * var(--s, 1)));
+  font-weight: 500;
+}
+.project-text .desc {
+  font-size: max(0.8125rem, calc(1.25rem * var(--s, 1)));
+  font-weight: 300;
+  min-height: 3.4em;
+}
+.project-text .tags {
+  font-size: max(0.8125rem, calc(1.25rem * var(--s, 1)));
+  font-weight: 300;
+  color: var(--muted);
+}
+.w500 {
+  font-weight: 500;
+}
+.w600 {
+  font-weight: 600;
+}
+
+/* HomeScope — iPhone mockup */
+.iphone {
+  left: 726px;
+  top: 88px;
+  width: 302px;
+  height: 653px;
+}
+.iphone-frame {
+  left: -9.74%;
+  top: -3.32%;
+  width: 119.65%;
+  height: 106.64%;
+}
+/* screen sits under the transparent screen area of the frame PNG (115,84 → 1170×2532 of 1400×2700) */
+.iphone-screen {
+  left: calc(-9.74% + 119.65% * 0.08214);
+  top: calc(-3.32% + 106.64% * 0.03111);
+  width: calc(119.65% * 0.83571);
+  height: calc(106.64% * 0.93778);
+  object-fit: cover;
+}
+
+/* VendorHub — browser mockup */
+.browser {
+  left: 536px;
+  top: calc(50% - 0.39px);
+  transform: translateY(-50%);
+  width: 737.506px;
+  height: 409.213px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 0.256px solid #a6a6a6;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8.195px 24.584px rgba(0, 0, 0, 0.5);
+}
+/* Chrome toolbar drawn in Figma's 1440-wide Chrome kit units (tab bar 42 tall),
+   scaled by --k to this 737.5-wide window. Icon order / spacing follows real Chrome:
+   back 16 · forward 48 · reload 80 · address bar from 108. */
+.browser {
+  --k: 0.51217;
+}
+.chrome-tabbar {
+  position: relative;
+  flex: none;
+  height: calc(42px * var(--k));
+  background: #dfe1e5;
+  overflow: hidden;
+}
+.chrome-dots {
+  position: absolute;
+  left: calc(21px * var(--k));
+  top: calc(15px * var(--k));
+  display: flex;
+  gap: calc(8px * var(--k));
+}
+.chrome-dots i {
+  width: calc(12px * var(--k));
+  height: calc(12px * var(--k));
+  border-radius: 50%;
+}
+.chrome-tab {
+  position: absolute;
+  left: calc(87px * var(--k));
+  top: calc(8px * var(--k));
+  width: calc(240px * var(--k));
+  height: calc(34px * var(--k));
+  background: #fff;
+  border-radius: calc(8px * var(--k)) calc(8px * var(--k)) 0 0;
+  overflow: hidden;
+}
+.chrome-tab-title {
+  position: absolute;
+  left: calc(12px * var(--k));
+  top: 50%;
+  transform: translateY(-50%);
+  font: 600 calc(12px * var(--k))/1 var(--font-ui);
+  letter-spacing: -0.01em;
+  color: #3d4043;
+  white-space: nowrap;
+}
+.chrome-tab-x {
+  position: absolute;
+  right: calc(12px * var(--k));
+  top: 50%;
+  width: calc(9px * var(--k));
+  height: calc(9px * var(--k));
+  transform: translateY(-50%);
+}
+.chrome-tab-end {
+  display: none;
+}
+.chrome-plus {
+  position: absolute;
+  left: calc(350px * var(--k));
+  top: calc(20px * var(--k));
+  width: calc(11px * var(--k));
+  height: calc(11px * var(--k));
+}
+.chrome-chevron {
+  position: absolute;
+  right: calc(18px * var(--k));
+  top: calc(23px * var(--k));
+  width: calc(8px * var(--k));
+  height: calc(4px * var(--k));
+}
+.chrome-nav {
+  position: relative;
+  flex: none;
+  height: calc(36px * var(--k));
+  background: #fff;
+  overflow: hidden;
+}
+.chrome-nav > .ci {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ci-back {
+  left: calc(16px * var(--k));
+  width: calc(13px * var(--k));
+  height: calc(13px * var(--k));
+}
+.ci-forward {
+  left: calc(48px * var(--k));
+  width: calc(13px * var(--k));
+  height: calc(13px * var(--k));
+}
+.ci-reload {
+  left: calc(80px * var(--k));
+  width: calc(13.25px * var(--k));
+  height: calc(12.5px * var(--k));
+}
+.chrome-search {
+  position: absolute;
+  left: calc(108px * var(--k));
+  right: calc(108px * var(--k));
+  top: 50%;
+  transform: translateY(-50%);
+  height: calc(28px * var(--k));
+  background: #f1f3f4;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.chrome-search > .ci {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ci-lock {
+  left: calc(14px * var(--k));
+  width: calc(8px * var(--k));
+  height: calc(10.5px * var(--k));
+}
+.ci-share {
+  right: calc(44px * var(--k));
+  width: calc(11.25px * var(--k));
+  height: calc(14.25px * var(--k));
+}
+.ci-star {
+  right: calc(12px * var(--k));
+  width: calc(13.5px * var(--k));
+  height: calc(12.9px * var(--k));
+}
+.chrome-url {
+  position: absolute;
+  left: calc(32px * var(--k));
+  top: 50%;
+  transform: translateY(-50%);
+  font: 400 calc(13px * var(--k))/1 var(--font-ui);
+  color: #606367;
+  white-space: nowrap;
+}
+.ci-ext {
+  right: calc(76px * var(--k));
+  width: calc(15px * var(--k));
+  height: calc(14.5px * var(--k));
+}
+.ci-toggle {
+  right: calc(45px * var(--k));
+  width: calc(14px * var(--k));
+  height: calc(14px * var(--k));
+}
+.ci-more {
+  right: calc(20px * var(--k));
+  width: calc(3px * var(--k));
+  height: calc(13.5px * var(--k));
+}
+.chrome-shadow {
+  flex: none;
+  height: calc(1px * var(--k));
+  background: #dbdcdd;
+}
+.browser-screen {
+  position: relative;
+  flex: 1 0 0;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+.browser-screen img {
+  position: absolute;
+  left: -0.01%;
+  top: -0.05%;
+  width: 737.506px;
+  height: calc(368.753px * 1.0857);
+}
+
+/* Cafcess — magazine */
+.magazine-wrap {
+  left: 553px;
+  top: -42px;
+  width: 690.908px;
+  height: 699.552px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* a little bigger: the cover is as tall as the SFU TA post (443) and sits at the
+     same height in the card (55 from the top), so both have the same spacing */
+  transform: translateY(-17px) scale(1.1);
+}
+.magazine {
+  position: relative;
+  flex: none;
+  width: 500.326px;
+  height: 522.5px;
+  transform: rotate(29deg);
+}
+.mag-shadow {
+  left: 0;
+  top: 0;
+  width: 500.326px;
+  height: 522.5px;
+  object-fit: cover;
+  opacity: 0.7;
+}
+.mag-body {
+  left: 0;
+  top: 16.55px;
+  width: 444.734px;
+  height: 489.395px;
+  object-fit: cover;
+}
+.mag-cover-wrap {
+  left: -43.49px;
+  top: 1.05px;
+  width: 515.652px;
+  height: 529.934px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mag-cover {
+  flex: none;
+  width: 366.235px;
+  height: 402.884px;
+  object-fit: contain;
+  transform: rotate(-29deg);
+}
+
+/* SFU TA — Instagram mockup */
+.insta {
+  left: 709px;
+  top: 55px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(0 4.55px 7.963px rgba(182, 182, 182, 0.9));
+}
+.insta-top {
+  position: relative;
+  width: 339px;
+  height: 59.154px;
+  background: #fff;
+  border-radius: 15.926px 15.926px 0 0;
+  overflow: hidden;
+}
+.insta-logo {
+  position: absolute;
+  left: 16.72px;
+  top: 11.93px;
+  width: 37.582px;
+  height: 37.582px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.insta-name {
+  position: absolute;
+  left: 63.42px;
+  top: 18.65px;
+  font: 700 9.669px/normal var(--font-ui);
+  color: #2d2936;
+}
+.insta-loc {
+  position: absolute;
+  left: 63.42px;
+  top: 31.52px;
+  font: 400 7.963px/normal var(--font-ui);
+  color: #2d2936;
+}
+.insta-post {
+  width: 338.658px;
+  height: 338.658px;
+  object-fit: cover;
+}
+.insta-bottom {
+  width: 339px;
+  height: 45.503px;
+  background: #fff;
+  border-radius: 0 0 15.926px 15.926px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10.84px 15.39px 0 15.38px;
+}
+.insta-bottom img {
+  width: 21.885px;
+  height: 21.885px;
+}
+.insta-actions {
+  display: flex;
+  gap: 9.101px;
+}
+
+/* =================== ABOUT ME =================== */
+.about {
+  margin: var(--section-gap) auto 0;
+  max-width: 74.1875rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--heading-gap);
+}
+/* JS sets --as (art scale), --ax/--ay (where the Figma 1187×905 art box sits),
+   --card-h and the text box vars, so the card just resizes at every width. */
+.about-block {
+  --as: 1;
+  --ax: 0px;
+  --ay: 0px;
+  position: relative;
+  padding-bottom: var(--girl-overhang, 347px); /* girl hangs below the card */
+}
+.about-card {
+  position: relative;
+  height: var(--card-h, 558px);
+  background: var(--about-yellow);
+  border-radius: clamp(1.25rem, 2.5vw, 1.875rem);
+  overflow: hidden;
+}
+.about-text {
+  position: absolute;
+  z-index: 2;
+  left: var(--tx, 52px);
+  top: var(--ty, 50%);
+  width: var(--tw, 560px);
+  transform: translateY(var(--tshift, -50%));
+  font-size: var(--tf, 1.5625rem);
+  line-height: normal;
+}
+.about-art {
+  position: absolute;
+  left: var(--ax);
+  top: var(--ay);
+  width: 1187px;
+  height: 905px;
+  transform-origin: 0 0;
+  transform: scale(var(--as));
+  pointer-events: none;
+}
+.about-girl-layer {
+  z-index: 3;
+  left: calc(
+    var(--ax) + var(--gx, 0px)
+  ); /* phones nudge the girl (phone Figma frame) */
+}
+.flowers {
+  position: absolute;
+  left: 610.78px;
+  top: 0;
+  display: flex;
+  height: 558px;
+  align-items: flex-end;
+}
+.flower {
+  position: relative;
+  flex: none;
+  transform-origin: 50% 100%;
+}
+.flower img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.about-card:hover .flower:nth-child(1) {
+  animation: sway 2.4s ease-in-out infinite;
+}
+.about-card:hover .flower:nth-child(2) {
+  animation: sway 2.8s ease-in-out -0.6s infinite;
+}
+.about-card:hover .flower:nth-child(3) {
+  animation: sway 2.6s ease-in-out -1.2s infinite;
+}
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+.girl {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1187px;
+  height: 905px;
+}
+.pencil-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pencil-tilt {
+  flex: none;
+  transform: rotate(34.27deg) skewX(0.82deg);
+}
+.pencil-body {
+  width: 109.683px;
+  height: 490.578px;
+  background: #a97c50;
+}
+
+/* =================== CONTACT =================== */
+.contact {
+  position: relative;
+  margin: 0 auto; /* envelope top = girl's shoe bottom (about-block ends there) */
+  width: min(62.80356rem, 100% - 2 * clamp(1rem, 6vw, 4.5rem));
+  aspect-ratio: 1004.857 / 1206.898; /* grows taller if the content needs it */
+  padding: clamp(2.5rem, 10.96%, 6.88187rem) clamp(1.25rem, 15.43%, 9.6875rem)
+    5.625rem;
+  font-family: var(--font-type);
+}
+.envelope {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.contact-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 43.22756rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.125rem;
+}
+.contact-head {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.00219rem;
+  line-height: normal;
+}
+.contact-head h2 {
+  font-weight: 400;
+  font-size: clamp(2.125rem, 4.3vw, 3.4375rem);
+  text-align: center;
+  width: 100%;
+}
+.contact-head p {
+  font-size: clamp(1rem, 1.8vw, 1.4375rem);
+  width: 100%;
+  text-align: center;
+}
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.26944rem;
+}
+.contact-form label {
+  align-self: stretch;
+  font-size: clamp(1.0625rem, 1.67vw, 1.33625rem);
+  line-height: normal;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 0;
+  border-radius: 0.75rem;
+  background: var(--input-bg);
+  font-family: var(--font-type);
+  font-size: 1.2025rem;
+  color: #000;
+  padding: 1.33625rem 1.3825rem;
+  outline: 2px solid transparent;
+  transition: outline-color 0.2s ease;
+}
+.contact-form input {
+  height: 4.00875rem;
+}
+/* no resize handle in the message box's corner */
+.contact-form textarea {
+  display: block;
+  height: 10.62319rem;
+  resize: none;
+  font-size: 1.28563rem;
+}
+.contact-form ::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline-color: var(--button);
+}
+.contact-form [aria-invalid="true"] {
+  outline-color: var(--accent-red);
+}
+.form-status {
+  align-self: stretch;
+  min-height: 0;
+  font-size: 1rem;
+  color: var(--accent-red);
+  text-align: center;
+}
+.form-status:empty {
+  display: none;
+}
+.form-status.ok {
+  color: #2f6b2c;
+}
+.send-btn {
+  margin-top: calc(3.125rem - 1.26944rem);
+  display: flex;
+  align-items: center;
+  gap: 0.40087rem;
+  padding: 0.40087rem 0.93537rem;
+  background: var(--button);
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-type);
+  font-size: 1.25694rem;
+  color: #000;
+  text-align: left;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.send-btn span {
+  width: 6.32644rem;
+  line-height: normal;
+}
+.send-btn img {
+  width: 3.68694rem;
+  height: 3.68694rem;
+  object-fit: cover;
+}
+.send-btn:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0 #b9864a;
+}
+.send-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.site-footer {
+  position: absolute;
+  z-index: 1;
+  left: 1.47rem;
+  right: 1.60312rem;
+  bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.33625rem;
+  line-height: normal;
+}
+.footer-links {
+  display: flex;
+  gap: 1.46875rem;
+  align-items: center;
+}
+.site-footer a {
+  text-decoration: none;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+}
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.send-btn[disabled] {
+  opacity: 0.6;
+  cursor: progress;
+  transform: none;
+  box-shadow: none;
+}
+
+/* "Email" → copy-to-clipboard with a tag-style tooltip */
+.copy-email {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.copy-email:hover,
+.copy-email:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.1875rem;
+  outline: none;
+}
+.copy-tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.75rem);
+  transform: translate(-50%, 0.375rem) rotate(-2deg);
+  padding: 0.375rem 0.75rem 0.4375rem;
+  background: var(--input-bg);
+  border: 1.5px solid #000;
+  border-radius: 0.5rem;
+  box-shadow: 0.1875rem 0.1875rem 0 #000;
+  font-family: var(--font-type);
+  font-size: 0.9375rem;
+  line-height: 1;
+  white-space: nowrap;
+  color: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    background-color 0.18s ease;
+}
+.copy-tip::after {
+  /* little pointer */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin-left: -0.3125rem;
+  margin-top: -0.3125rem;
+  background: inherit;
+  border-right: 1.5px solid #000;
+  border-bottom: 1.5px solid #000;
+  transform: rotate(45deg);
+}
+.copy-email:hover .copy-tip,
+.copy-email:focus-visible .copy-tip,
+.copy-email.is-copied .copy-tip {
+  opacity: 1;
+  transform: translate(-50%, 0) rotate(-2deg);
+}
+.copy-email.is-copied .copy-tip {
+  background: var(--button);
+}
+
+/* =================== SHAPES BOTTOM =================== */
+.shapes-drop {
+  position: relative;
+  z-index: 4;
+  width: 100%; /* full screen width, no max */
+  margin: var(--section-gap) 0 0;
+  height: min(calc(25rem * var(--ps, 1)), 35rem);
+  min-height: 14.375rem;
+  overflow-x: clip;
+  overflow-y: visible;
+  touch-action: pan-y;
+}
+.shapes-static {
+  position: absolute;
+  left: -2.03%;
+  bottom: 0;
+  width: 107.35%;
+  height: auto;
+}
+.shapes-drop.is-physics .shapes-static {
+  display: none;
+}
+/* clipped physics area: bottom edge = page bottom, extends upward so shapes can fall in */
+.shapes-stage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.shape-body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+.shape-body img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -webkit-user-drag: none;
+}
+/* "THANKS FOR DROPPING BY!" — one word per shape, Inter Black */
+.shape-word {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+/* reduced motion: static shapes + the message on one line */
+.thanks-static {
+  display: none;
+}
+.shapes-drop:not(.is-physics) .thanks-static {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 18%;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(1.375rem, 3vw, 2.25rem);
+}
+.shapes-drop.is-draggable {
+  cursor: grab;
+}
+.shapes-drop.is-dragging {
+  cursor: grabbing;
+}
+
+/* =================== RESPONSIVE ===================
+   Desktop (≥ 64rem / 1024px) is the Figma design above.
+   Tablet  (37.5–63.9375rem / 600–1023px) and Phone (≤ 37.4375rem / 599px) below.
+   Keep these in sync with PHONE / TABLET in js/main.js. */
+
+/* desktop, narrower than the 1280 frame: side breathing room */
+@media (max-width: 82.5rem) {
+  .selected,
+  .about {
+    padding: 0 1.25rem;
+  }
+}
+
+/* hero on phones + portrait tablets (JS adds .is-stacked): headline sits above the girl */
+.hero.is-stacked .hero-title {
+  left: 1.25rem;
+  right: 1.25rem;
+  width: auto;
+  font-size: clamp(1.625rem, 5.6vw, 2.75rem);
+}
+
+/* ---------- Tablet + Phone ---------- */
+/* 1023px = 63.9375rem */
+@media (max-width: 63.9375rem) {
+  :root {
+    --section-gap: 10rem;
+    --heading-gap: 3rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .selected,
+  .about {
+    padding: 0 2rem;
+  }
+  .sneak {
+    margin-top: 5.5rem;
+  }
+
+  /* project cards: text keeps a readable size as the card shrinks */
+  .project-text h3 {
+    font-size: max(1.5rem, calc(2.1875rem * var(--s, 1)));
+  }
+  .project-text .desc,
+  .project-text .tags {
+    font-size: max(0.9375rem, calc(1.25rem * var(--s, 1)));
+  }
+
+  /* contact: the envelope is drawn in CSS so the cream letter always grows with the
+     form — the pink fields never spill onto the green flaps.
+     --lt letter top inset · --send-h height of the Send button row ·
+     --D depth of the letter's V. The letter's V starts just under the message box. */
+  .contact {
+    /* tablet Figma frame (447:600): envelope ~96% of the old size, 3rem side margins */
+    --lt: 1.4375rem;
+    --send-h: 5.1rem;
+    --D: 13.5rem;
+    width: min(62.80356rem, 100% - 6rem);
+    aspect-ratio: auto;
+    padding: 4.25rem 10.5% calc(var(--D) - var(--send-h) + 4.3rem);
+    background: #8aa57a;
+    border-radius: 0.8rem;
+  }
+  .envelope {
+    display: none;
+  }
+  .contact::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: var(--lt);
+    left: 3.83%;
+    right: 3.83%;
+    bottom: 4.3rem;
+    background: #f8f4ed;
+    border-radius: 0.8rem 0.8rem 0 0;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - var(--D)),
+      50% 100%,
+      0 calc(100% - var(--D))
+    );
+  }
+  .contact-inner {
+    gap: 1.5rem;
+  }
+  .contact-head h2 {
+    font-size: clamp(1.875rem, 4.8vw, 2.75rem);
+  }
+  .contact-head p {
+    font-size: 1.0625rem;
+  }
+  .contact-form label {
+    font-size: 1.0625rem;
+  }
+  .contact-form input {
+    height: 3.5rem;
+    padding: 1.0625rem 1.25rem;
+    font-size: 1rem;
+  }
+  .contact-form textarea {
+    height: 9rem;
+    padding: 1.0625rem 1.25rem;
+    font-size: 1rem;
+  }
+  .send-btn {
+    margin-top: 1.25rem;
+    font-size: 1.0625rem;
+  }
+  .send-btn span {
+    width: 5.5rem;
+  }
+  .send-btn img {
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+  .site-footer {
+    font-size: 1.0625rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+/* ---------- Tablet, 600–1023px (tablet Figma frame 447:600) ---------- */
+@media (min-width: 37.5rem) and (max-width: 63.9375rem) {
+  /* card text starts at the card's middle, a little wider */
+  .project-text {
+    top: 0;
+    bottom: 1.5rem;
+    width: 38.35%;
+    gap: 0.9375rem;
+  }
+  /* text starts at the card's middle; on narrow tablets (600–767px) where it would
+     run past the bottom, this spacer shrinks so the text moves up instead */
+  .project-text::before {
+    content: "";
+    flex: 0 1 calc(50% - 0.1875rem); /* 50% of (card − 1.5rem), minus the gap = card's middle */
+  }
+  .project-text > * {
+    flex-shrink: 0; /* only the spacer gives way, never the text */
+  }
+  /* VendorHub browser a touch smaller and further right */
+  .browser {
+    left: 594px;
+    top: calc(50% + 17px);
+    transform: translateY(-50%) scale(0.941);
+    transform-origin: 0 50%;
+  }
+}
+/* tablet headline over the girl: narrower block (Figma: 559px wide) */
+@media (min-width: 37.5rem) {
+  .hero.is-stacked .hero-title {
+    left: 50%;
+    right: auto;
+    width: min(35rem, 100% - 2.5rem);
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Phone: project cards stack (picture on top, text below) ---------- */
+/* 599px = 37.4375rem (tablet 600–1023px keeps the tablet card layout) */
+@media (max-width: 37.4375rem) {
+  .project-stack {
+    gap: 1.25rem;
+  }
+  .project {
+    display: flex;
+    flex-direction: column;
+  }
+  /* card stays small enough to fit the screen with room around it */
+  .project {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+  /* picture: crop centred on each mockup */
+  .project-visual {
+    --x: 562;
+    --w: 630;
+    --h: 470;
+  } /* HomeScope phone, SFU TA post */
+  /* VendorHub browser, Cafcess magazine, SFU TA post: same crops as the phone
+     Figma frame (448:649), so the mockups keep space on their left and right */
+  .project:has(.browser) .project-visual {
+    --x: 488.5;
+    --y: -53.4;
+    --w: 831.3;
+    --h: 620;
+  }
+  .project:has(.magazine-wrap) .project-visual {
+    /* same crop size as the SFU TA post, centred on the magazine */
+    --x: 512;
+    --y: 1.4;
+    --w: 700;
+    --h: 522;
+  }
+  .project:has(.insta) .project-visual {
+    --x: 529;
+    --y: 1.4;
+    --w: 700;
+    --h: 522;
+  }
+  .project-text {
+    position: static;
+    width: auto;
+    padding: 0.75rem 1.75rem 1.75rem;
+    gap: 0.5rem;
+  }
+  .project-text .desc {
+    min-height: 0;
+  }
+}
+
+/* ---------- Phone (phone Figma frame 448:649) ---------- */
+@media (max-width: 37.4375rem) {
+  :root {
+    --section-gap: 7.375rem; /* contact → thanks, projects → about */
+    --heading-gap: 2.375rem;
+  }
+  .site-header-inner {
+    height: auto;
+    padding: 1.5rem 1.25rem 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    position: static;
+    padding-top: 0;
+    font-size: 1.375rem;
+  }
+  /* the inline nav becomes a hamburger menu (see MENU below) */
+  .site-header .nav {
+    display: none;
+  }
+
+  /* hero: not full-screen any more; JS sets its height to the table's bottom edge */
+  .hero {
+    min-height: 0;
+  }
+
+  .section-title {
+    font-size: 1.5625rem;
+  }
+  #about-title {
+    font-size: 1.875rem;
+  }
+  .selected,
+  .about {
+    padding: 0 1.25rem;
+  }
+  .sneak {
+    margin-top: 4.4375rem;
+  }
+  .selected {
+    margin-top: 6.375rem;
+  }
+  .about {
+    gap: 2.0625rem;
+  }
+
+  /* project cards: text sits at the card's bottom edge */
+  .project-text {
+    padding: 1.25rem 1.5rem 1.75rem;
+    gap: 0.625rem;
+  }
+  .project-text h3 {
+    font-size: 1.25rem;
+  }
+  .project-text .desc,
+  .project-text .tags {
+    font-size: 0.9375rem;
+  }
+  /* mockup crops: in the stacked-card block above */
+
+  .about-card {
+    border-radius: 1rem;
+  }
+
+  /* contact: letter with a shallow V, tighter form, centred stacked footer */
+  .contact {
+    --lt: 0.875rem;
+    --send-h: 1.1875rem;
+    --D: 6.42rem;
+    width: calc(100% - 2.5rem);
+    padding-top: 3rem;
+    padding-bottom: calc(var(--D) - var(--send-h) + 5.84rem);
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+  .contact::before {
+    bottom: 5.84rem;
+  }
+  .contact-inner {
+    gap: 2.1875rem;
+  }
+  .contact-head {
+    gap: 1.25rem;
+  }
+  .contact-head h2 {
+    font-size: 1.625rem;
+  }
+  .contact-head p {
+    font-size: 0.9375rem;
+  }
+  .contact-form {
+    gap: 0.8125rem;
+  }
+  .contact-form label {
+    font-size: 0.9375rem;
+  }
+  .contact-form label:not(:first-of-type) {
+    margin-top: 1rem;
+  }
+  .contact-form input {
+    height: 2.8125rem;
+    padding: 0 1.25rem;
+    font-size: 0.9375rem;
+  }
+  .contact-form textarea {
+    height: 7.1875rem;
+    padding: 1.25rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+  .send-btn {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.58rem;
+    gap: 0.25rem;
+  }
+  .send-btn span {
+    width: 3.9375rem;
+  }
+  .send-btn img {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+  .site-footer {
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 0.875rem;
+    font-size: 0.875rem;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1rem;
+  }
+  .footer-links {
+    gap: 1rem;
+  }
+
+  .shapes-drop {
+    min-height: 11rem;
+  }
+}
+
+/* =================== MENU (phones) ===================
+   Hamburger in the header → a cream sheet drops down from the top with the links
+   set in the typewriter face, like the rest of the page. */
+.menu-btn,
+.menu-sheet {
+  display: none;
+}
+@media (max-width: 37.4375rem) {
+  .menu-btn,
+  .menu-close {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3125rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-right: -0.5rem;
+    padding: 0 0.5rem;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .menu-btn span,
+  .menu-close span {
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--ink);
+  }
+  .menu-btn span:nth-child(2) {
+    width: 70%;
+    margin-left: auto;
+  }
+  .menu-close span:nth-child(1) {
+    transform: translateY(0.1875rem) rotate(45deg);
+  }
+  .menu-close span:nth-child(2) {
+    transform: translateY(-0.1875rem) rotate(-45deg);
+  }
+  .menu-sheet {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    inset: 0 0 auto 0;
+    padding: 1.5rem 1.25rem 2.5rem;
+    background: var(--bg);
+    border-bottom: 1.5px solid #000;
+    box-shadow: 0 0.375rem 0 rgba(0, 0, 0, 0.08);
+    transform: translateY(-105%);
+    visibility: hidden;
+    transition:
+      transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+      visibility 0s linear 0.35s;
+  }
+  .menu-sheet.is-open {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .menu-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .menu-logo {
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: var(--logo);
+    text-decoration: none;
+  }
+  .menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 2.25rem;
+    font-family: var(--font-type);
+    font-size: 1.25rem; /* same as the tablet nav */
+  }
+  .menu-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .menu-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.25rem;
+    height: 1.5px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .menu-links a:hover::after,
+  .menu-links a:focus-visible::after {
+    transform: scaleX(1);
+  }
+  .menu-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: rgba(56, 54, 54, 0.25);
+  }
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-sheet,
+  .menu-sheet.is-open {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .float-a,
+  .float-b {
+    animation: none;
+  }
+  .about-card:hover .flower {
+    animation: none !important;
+  }
+}

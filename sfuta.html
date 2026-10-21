@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SFU TA | Selina Chu</title>
+    <meta
+      name="description"
+      content="SFU TA: social media content design for the Simon Fraser University Taiwanese Association."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,500&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="work.css" />
+  </head>
+  <body class="work-page">
+    <!-- Phone menu sheet (opened by the hamburger in the header) -->
+    <div
+      class="menu-sheet"
+      id="menu-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu"
+    >
+      <div class="menu-top">
+        <a class="menu-logo" href="index.html">selina</a>
+        <button type="button" class="menu-close" aria-label="Close menu">
+          <span></span><span></span>
+        </button>
+      </div>
+      <nav class="menu-links" aria-label="Menu">
+        <a href="index.html#work">works</a>
+        <a href="index.html#about">about</a>
+      </nav>
+    </div>
+    <!-- Header: same as the home page -->
+    <div class="work-header">
+      <header class="site-header">
+        <div class="site-header-inner">
+          <a class="logo" href="index.html">selina</a>
+          <nav class="nav" aria-label="Primary">
+            <a href="index.html#work">works</a>
+            <a href="index.html#about">about</a>
+          </nav>
+          <!-- phones: hamburger → menu sheet (#menu-sheet) -->
+          <button
+            type="button"
+            class="menu-btn"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="menu-sheet"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <div class="work-layout">
+      <!-- Left: back link + section nav (active section turns black while scrolling) -->
+      <aside class="work-side">
+        <a class="back-link" href="index.html#work">
+          <svg
+            class="back-arrow"
+            width="24"
+            height="12"
+            viewBox="0 0 24 12"
+            aria-hidden="true"
+          >
+            <path
+              d="M23 6H1.5M6.5 1 1.5 6l5 5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>back</span>
+        </a>
+        <!-- <nav class="section-nav" aria-label="Case study sections">
+      <a href="#overview" data-spy="overview">overview</a>
+      <a href="#posts" data-spy="posts">event posts</a>
+    </nav> -->
+      </aside>
+
+      <main class="work-main work-main--gallery">
+        <!-- ============ OVERVIEW ============ -->
+        <section id="overview" class="w-block w-overview">
+          <div class="w-title">
+            <h1>Social media content design for SFU Taiwanese Association</h1>
+            <p class="w-category">Graphic Design</p>
+          </div>
+          <div class="w-meta">
+            <div>
+              <h3>Role</h3>
+              <p class="w-nowrap">Design &amp; Marketing Executive</p>
+            </div>
+            <div aria-hidden="true"></div>
+            <div>
+              <h3>Time</h3>
+              <p>2023-2025</p>
+            </div>
+          </div>
+          <div class="w-overview-text">
+            <h2 class="w-label">Overview</h2>
+            <p>
+              SFU TA, a Taiwanese Association at Simon Fraser University, a
+              social and cultural club that shares Taiwanese culture on campus.
+              This series of event posters promotes the club’s events, with each
+              poster featuring a unique design while maintaining a consistent
+              visual style and brand identity.
+            </p>
+          </div>
+        </section>
+
+        <!-- ============ EVENT POSTS (3 columns, picnic poster centred below) ============ -->
+        <section
+          id="posts"
+          class="w-block w-gal w-posts-block"
+          aria-label="Event posts"
+        >
+          <ul class="w-posts">
+            <li>
+              <img
+                src="assets/img/sfuta-sports-day.webp"
+                alt="Sports Day poster"
+                decoding="async"
+              />
+            </li>
+            <li>
+              <img
+                src="assets/img/sfuta-clubs-day.webp"
+                alt="Clubs Day poster"
+                decoding="async"
+              />
+            </li>
+            <li>
+              <img
+                src="assets/img/sfuta-spy-hunt.webp"
+                alt="Spy Hunt poster"
+                decoding="async"
+              />
+            </li>
+            <li>
+              <img
+                src="assets/img/sfuta-night-market.webp"
+                alt="Night Market poster"
+                decoding="async"
+              />
+            </li>
+            <li>
+              <img
+                src="assets/img/sfuta-group-pictures.webp"
+                alt="Ice Breaker group pictures post"
+                decoding="async"
+              />
+            </li>
+            <li>
+              <img
+                src="assets/img/sfuta-activity-highlight.webp"
+                alt="Ice Breaker activity highlight post"
+                decoding="async"
+              />
+            </li>
+            <li class="is-tall">
+              <img
+                src="assets/img/sfuta-picnic.webp"
+                alt="Spring Picnic poster"
+                decoding="async"
+              />
+            </li>
+          </ul>
+        </section>
+
+        <!-- ============ NEXT PROJECT (home-page HomeScope card) ============ -->
+        <section class="w-block w-next">
+          <h2 class="w-label">Next Project</h2>
+          <article class="project r20 is-linked next-card">
+            <a
+              class="card-link"
+              href="homescope.html"
+              aria-label="Next project: HomeScope"
+            ></a>
+            <div class="stage-wrap project-visual" aria-hidden="true">
+              <div class="stage" style="--fw: 1188; --fh: 558">
+                <div class="L iphone mockup">
+                  <img
+                    class="L iphone-screen"
+                    src="assets/img/homescope-screen.png"
+                    alt=""
+                  />
+                  <img
+                    class="L iphone-frame"
+                    src="assets/img/iphone-homescope.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="project-text">
+              <h3>
+                <span class="w500">Home</span><span class="w600">Scope</span>
+              </h3>
+              <p class="desc">
+                A housing app that helps international students find affordable
+                housing.
+              </p>
+              <p class="tags">UI/UX Design, Prototype</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="work-footer">
+      <!-- girl w/ pencil: shoes stand on the footer's top edge, pencil overlaps into it -->
+      <div class="girl-peek" aria-hidden="true">
+        <div class="girl-peek-art">
+          <div class="girl">
+            <img
+              class="L"
+              style="
+                left: 869.82px;
+                top: 639.02px;
+                width: 162.892px;
+                height: 166.998px;
+              "
+              src="assets/svg/girl-right-leg.svg"
+              alt=""
+            />
+            <img
+              class="L"
+              style="
+                left: 676px;
+                top: 636.93px;
+                width: 167.319px;
+                height: 169.091px;
+              "
+              src="assets/svg/girl-left-leg.svg"
+              alt=""
+            />
+            <img
+              class="L"
+              style="
+                left: 749.52px;
+                top: 465.81px;
+                width: 189.752px;
+                height: 201.423px;
+              "
+              src="assets/svg/girl-shirt.svg"
+              alt=""
+            />
+            <!-- face -->
+            <div class="L" style="inset: 39.77% 18.28% 40.56% 62.76%">
+              <img
+                class="fill"
+                src="assets/svg/girl-hair-textured.svg"
+                alt=""
+              />
+            </div>
+            <img
+              class="L"
+              style="left: 779px; top: 375px; width: 158px; height: 159px"
+              src="assets/svg/girl-face.svg"
+              alt=""
+            />
+            <div class="L" style="inset: 40.83% 20.14% 41.14% 64.62%">
+              <img
+                class="fill"
+                src="assets/svg/girl-bang-textured.svg"
+                alt=""
+              />
+            </div>
+            <img
+              class="L"
+              style="left: 812px; top: 470px; width: 90px; height: 34px"
+              src="assets/svg/girl-eyes.svg"
+              alt=""
+            />
+            <div class="L" style="inset: 56.67% 26.45% 41.67% 70.94%">
+              <img class="fill" src="assets/svg/girl-mouth.svg" alt="" />
+            </div>
+            <!-- pencil -->
+            <div
+              class="L pencil-box"
+              style="
+                left: 749.51px;
+                top: 349px;
+                width: 361.055px;
+                height: 471.081px;
+              "
+            >
+              <div class="pencil-tilt"><div class="pencil-body"></div></div>
+            </div>
+            <div
+              class="L pencil-box"
+              style="
+                left: 693.52px;
+                top: 746.68px;
+                width: 154.546px;
+                height: 158.489px;
+              "
+            >
+              <div class="pencil-tilt">
+                <img
+                  style="display: block; width: 109.683px; height: 115.931px"
+                  src="assets/svg/pencil-front.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <img
+              class="L"
+              style="
+                left: 828.99px;
+                top: 602.43px;
+                width: 147.257px;
+                height: 53.561px;
+              "
+              src="assets/svg/girl-hand.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="wf-panel">
+        <div class="wf-head">
+          <h2>Let's get in touch</h2>
+          <p>Want to learn more about project or just want to connect?</p>
+        </div>
+        <a class="send-btn send-btn--sm" href="mailto:selinachu456@gmail.com">
+          <span>Send Message</span>
+          <img src="assets/img/send-icon.png" alt="" />
+        </a>
+        <p class="wf-credit">Designed by Selina Chu</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/work.js"></script>
+  </body>
+</html>

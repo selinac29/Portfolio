@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="90" height="34" viewBox="0 0 90 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="eyes">
+<ellipse id="Ellipse 8" cx="18.5" cy="25" rx="8.5" ry="9" fill="black"/>
+<ellipse id="Ellipse 9" cx="73.5" cy="25" rx="8.5" ry="9" fill="black"/>
+<circle id="Ellipse 47" cx="18.5" cy="29.5" r="2.5" fill="white"/>
+<circle id="Ellipse 48" cx="72.5" cy="29.5" r="2.5" fill="white"/>
+<path id="eyebrow" d="M30 4.58793C30 6.36163 22.9659 1.83517 15.1807 1.83517C7.3955 1.83517 0 6.36163 0 4.58793C0 2.81424 7.3955 0 15.1807 0C22.9659 0 30 2.81424 30 4.58793Z" fill="#261B11"/>
+<path id="eyebrow_2" d="M90 4.58793C90 6.36163 82.9659 1.83517 75.1807 1.83517C67.3955 1.83517 60 6.36163 60 4.58793C60 2.81424 67.3955 0 75.1807 0C82.9659 0 90 2.81424 90 4.58793Z" fill="#261B11"/>
+</g>
+</svg>

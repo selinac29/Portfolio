@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="162.892" height="166.998" viewBox="0 0 162.892 166.998" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="right leg">
+<path id="shoe" d="M137.118 145.759C151.696 147.269 162.892 156.203 162.892 166.998H102.58L104.127 165.165L112.632 159.93L123.457 154.695L137.118 145.759Z" fill="#D35D47"/>
+<rect id="sock" width="40.1747" height="16.2109" transform="matrix(-0.85397 0.520322 0.508639 0.86098 128.641 131.923)" fill="white"/>
+<rect id="leg" width="40.1747" height="65.5022" transform="matrix(-0.85397 0.520322 0.508639 0.86098 95.3307 75.3848)" fill="#FDD3AC"/>
+<rect id="shorts" width="67.2901" height="94.8932" transform="matrix(-0.85397 0.520322 0.508639 0.86098 57.4637 0)" fill="#6F74A8"/>
+</g>
+</svg>

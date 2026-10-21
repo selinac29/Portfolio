@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cafcess | Selina Chu</title>
+    <meta
+      name="description"
+      content="Cafcess: an editorial magazine exploring café culture."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,500&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="work.css" />
+  </head>
+  <body class="work-page">
+    <!-- Phone menu sheet (opened by the hamburger in the header) -->
+    <div
+      class="menu-sheet"
+      id="menu-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu"
+    >
+      <div class="menu-top">
+        <a class="menu-logo" href="index.html">selina</a>
+        <button type="button" class="menu-close" aria-label="Close menu">
+          <span></span><span></span>
+        </button>
+      </div>
+      <nav class="menu-links" aria-label="Menu">
+        <a href="index.html#work">works</a>
+        <a href="index.html#about">about</a>
+      </nav>
+    </div>
+
+    <!-- Header: same as the home page -->
+    <div class="work-header">
+      <header class="site-header">
+        <div class="site-header-inner">
+          <a class="logo" href="index.html">selina</a>
+          <nav class="nav" aria-label="Primary">
+            <a href="index.html#work">works</a>
+            <a href="index.html#about">about</a>
+          </nav>
+          <!-- phones: hamburger → menu sheet (#menu-sheet) -->
+          <button
+            type="button"
+            class="menu-btn"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="menu-sheet"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <div class="work-layout">
+      <!-- Left: back link + section nav (active section turns black while scrolling) -->
+      <aside class="work-side">
+        <a class="back-link" href="index.html#work">
+          <svg
+            class="back-arrow"
+            width="24"
+            height="12"
+            viewBox="0 0 24 12"
+            aria-hidden="true"
+          >
+            <path
+              d="M23 6H1.5M6.5 1 1.5 6l5 5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>back</span>
+        </a>
+        <nav class="section-nav" aria-label="Case study sections">
+          <a href="#overview" data-spy="overview">overview</a>
+          <a href="#cover" data-spy="cover">magazine cover</a>
+          <a href="#contents" data-spy="contents">table of contents</a>
+          <a href="#editorial" data-spy="editorial">editorial design</a>
+          <a href="#subscription" data-spy="subscription">subscription card</a>
+          <a href="#ads" data-spy="ads">advertisements</a>
+          <a href="#website" data-spy="website">website mockup</a>
+        </nav>
+      </aside>
+
+      <main class="work-main work-main--gallery">
+        <!-- ============ OVERVIEW ============ -->
+        <section id="overview" class="w-block w-overview">
+          <div class="w-title">
+            <h1>An editorial magazine exploring café culture</h1>
+            <p class="w-category">Editorial Design, Graphic Design</p>
+          </div>
+          <div class="w-meta">
+            <div>
+              <h3>Role</h3>
+              <p class="w-nowrap">Designer (solo project)</p>
+            </div>
+            <div aria-hidden="true"></div>
+            <div>
+              <h3>Time</h3>
+              <p>2026 May-Jun</p>
+            </div>
+          </div>
+          <div class="w-overview-text">
+            <h2 class="w-label">Overview</h2>
+            <p>
+              Cafcess is a lifestyle and café culture magazine featuring café
+              and dessert guides, reviews and photo essays. With a warm,
+              aesthetically driven tone, it highlights hidden gems, seasonal
+              drinks and trending desserts, offering readers a visual escape and
+              a moment of balance in everyday life.
+            </p>
+          </div>
+        </section>
+
+        <!-- ============ MAGAZINE COVER ============ -->
+        <section id="cover" class="w-block w-gal">
+          <h2 class="w-label">Magazine cover</h2>
+          <img
+            class="w-shot w-cover"
+            src="assets/img/cafcess-cover.webp"
+            alt="Cafcess magazine cover"
+            width="1341"
+            height="1741"
+            decoding="async"
+          />
+        </section>
+
+        <!-- ============ TABLE OF CONTENTS ============ -->
+        <section id="contents" class="w-block w-gal">
+          <h2 class="w-label">Table of contents</h2>
+          <img
+            class="w-shot"
+            src="assets/img/cafcess-toc.webp"
+            alt="Cafcess table of contents spread"
+            width="2328"
+            height="1512"
+            decoding="async"
+          />
+        </section>
+
+        <!-- ============ EDITORIAL DESIGN ============ -->
+        <section id="editorial" class="w-block w-gal">
+          <h2 class="w-label">Editorial design</h2>
+          <img
+            class="w-shot"
+            src="assets/img/cafcess-editorial-1.webp"
+            alt="Cafcess editorial spread"
+            width="2328"
+            height="1512"
+            decoding="async"
+          />
+          <div class="w-row w-row--editorial">
+            <img
+              class="w-shot"
+              src="assets/img/cafcess-editorial-2.webp"
+              alt="Cafcess editorial spread"
+              width="1536"
+              height="997"
+              decoding="async"
+            />
+            <img
+              class="w-shot"
+              src="assets/img/cafcess-editorial-3.webp"
+              alt="Cafcess editorial page"
+              width="768"
+              height="997"
+              decoding="async"
+            />
+          </div>
+        </section>
+
+        <!-- ============ SUBSCRIPTION CARD ============ -->
+        <section id="subscription" class="w-block w-gal">
+          <h2 class="w-label">Subscription card</h2>
+          <div class="w-stack w-subs">
+            <img
+              class="w-shot"
+              src="assets/img/cafcess-subscription-1.webp"
+              alt="Cafcess subscription card, front"
+              width="1800"
+              height="1200"
+              decoding="async"
+            />
+            <img
+              class="w-shot"
+              src="assets/img/cafcess-subscription-2.webp"
+              alt="Cafcess subscription card, back"
+              width="1800"
+              height="1200"
+              decoding="async"
+            />
+          </div>
+        </section>
+
+        <!-- ============ ONLINE ADS ============ -->
+        <section id="ads" class="w-block w-gal">
+          <h2 class="w-label">Online magazine advertisements</h2>
+          <div class="w-row w-row--ads">
+            <img
+              class="w-shot w-ad-tall"
+              src="assets/img/cafcess-ad-2.webp"
+              alt="Cafcess skyscraper web ad"
+              width="500"
+              height="2500"
+              decoding="async"
+            />
+            <img
+              class="w-shot w-ad-wide"
+              src="assets/img/cafcess-ad-1.webp"
+              alt="Cafcess web ad"
+              width="1250"
+              height="1042"
+              decoding="async"
+            />
+          </div>
+        </section>
+
+        <!-- ============ WEBSITE MOCKUP ============ -->
+        <section id="website" class="w-block w-gal">
+          <h2 class="w-label">Website mockup for magazine</h2>
+          <img
+            class="w-shot w-site"
+            src="assets/img/cafcess-website.webp"
+            alt="Cafcess magazine website mockup"
+            width="2400"
+            height="2700"
+            decoding="async"
+          />
+        </section>
+
+        <!-- ============ NEXT PROJECT (home-page SFU TA card) ============ -->
+        <section class="w-block w-next">
+          <h2 class="w-label">Next Project</h2>
+          <article class="project r30 is-linked next-card">
+            <a
+              class="card-link"
+              href="sfuta.html"
+              aria-label="Next project: SFU TA"
+            ></a>
+            <div class="stage-wrap project-visual" aria-hidden="true">
+              <div class="stage" style="--fw: 1188; --fh: 558">
+                <div class="L insta mockup">
+                  <div class="insta-top">
+                    <img
+                      class="insta-logo"
+                      src="assets/img/sfuta-logo.png"
+                      alt=""
+                    />
+                    <span class="insta-name">SFUTA</span>
+                    <span class="insta-loc">Burnaby, BC</span>
+                  </div>
+                  <img
+                    class="insta-post"
+                    src="assets/img/night-market.png"
+                    alt=""
+                  />
+                  <div class="insta-bottom">
+                    <div class="insta-actions">
+                      <img src="assets/svg/ig-heart.svg" alt="" />
+                      <img src="assets/svg/ig-chat.svg" alt="" />
+                      <img src="assets/svg/ig-send.svg" alt="" />
+                    </div>
+                    <img src="assets/svg/ig-bookmark.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-text">
+              <h3 class="w500">SFU TA</h3>
+              <p class="desc">
+                Social media content design for Simon Fraser University
+                Taiwanese Association.
+              </p>
+              <p class="tags">Graphic Design</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="work-footer">
+      <!-- girl w/ pencil: shoes stand on the footer's top edge, pencil overlaps into it -->
+      <div class="girl-peek" aria-hidden="true">
+        <div class="girl-peek-art">
+          <div class="girl">
+            <img
+              class="L"
+              style="
+                left: 869.82px;
+                top: 639.02px;
+                width: 162.892px;
+                height: 166.998px;
+              "
+              src="assets/svg/girl-right-leg.svg"
+              alt=""
+            />
+            <img
+              class="L"
+              style="
+                left: 676px;
+                top: 636.93px;
+                width: 167.319px;
+                height: 169.091px;
+              "
+              src="assets/svg/girl-left-leg.svg"
+              alt=""
+            />
+            <img
+              class="L"
+              style="
+                left: 749.52px;
+                top: 465.81px;
+                width: 189.752px;
+                height: 201.423px;
+              "
+              src="assets/svg/girl-shirt.svg"
+              alt=""
+            />
+            <!-- face -->
+            <div class="L" style="inset: 39.77% 18.28% 40.56% 62.76%">
+              <img
+                class="fill"
+                src="assets/svg/girl-hair-textured.svg"
+                alt=""
+              />
+            </div>
+            <img
+              class="L"
+              style="left: 779px; top: 375px; width: 158px; height: 159px"
+              src="assets/svg/girl-face.svg"
+              alt=""
+            />
+            <div class="L" style="inset: 40.83% 20.14% 41.14% 64.62%">
+              <img
+                class="fill"
+                src="assets/svg/girl-bang-textured.svg"
+                alt=""
+              />
+            </div>
+            <img
+              class="L"
+              style="left: 812px; top: 470px; width: 90px; height: 34px"
+              src="assets/svg/girl-eyes.svg"
+              alt=""
+            />
+            <div class="L" style="inset: 56.67% 26.45% 41.67% 70.94%">
+              <img class="fill" src="assets/svg/girl-mouth.svg" alt="" />
+            </div>
+            <!-- pencil -->
+            <div
+              class="L pencil-box"
+              style="
+                left: 749.51px;
+                top: 349px;
+                width: 361.055px;
+                height: 471.081px;
+              "
+            >
+              <div class="pencil-tilt"><div class="pencil-body"></div></div>
+            </div>
+            <div
+              class="L pencil-box"
+              style="
+                left: 693.52px;
+                top: 746.68px;
+                width: 154.546px;
+                height: 158.489px;
+              "
+            >
+              <div class="pencil-tilt">
+                <img
+                  style="display: block; width: 109.683px; height: 115.931px"
+                  src="assets/svg/pencil-front.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <img
+              class="L"
+              style="
+                left: 828.99px;
+                top: 602.43px;
+                width: 147.257px;
+                height: 53.561px;
+              "
+              src="assets/svg/girl-hand.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="wf-panel">
+        <div class="wf-head">
+          <h2>Let's get in touch</h2>
+          <p>Want to learn more about project or just want to connect?</p>
+        </div>
+        <a class="send-btn send-btn--sm" href="mailto:selinachu456@gmail.com">
+          <span>Send Message</span>
+          <img src="assets/img/send-icon.png" alt="" />
+        </a>
+        <p class="wf-credit">Designed by Selina Chu</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/work.js"></script>
+  </body>
+</html>

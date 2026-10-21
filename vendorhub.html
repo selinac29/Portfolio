@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VendorHub | Selina Chu</title>
+    <meta
+      name="description"
+      content="VendorHub: a location-based web platform to discover local vendors, pop-up markets and micro-events in Vancouver."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,500&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="work.css" />
+  </head>
+  <body class="work-page">
+    <!-- Phone menu sheet (opened by the hamburger in the header) -->
+    <div
+      class="menu-sheet"
+      id="menu-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu"
+    >
+      <div class="menu-top">
+        <a class="menu-logo" href="index.html">selina</a>
+        <button type="button" class="menu-close" aria-label="Close menu">
+          <span></span><span></span>
+        </button>
+      </div>
+      <nav class="menu-links" aria-label="Menu">
+        <a href="index.html#work">works</a>
+        <a href="index.html#about">about</a>
+      </nav>
+    </div>
+    <!-- Header: same as the home page -->
+    <div class="work-header">
+      <header class="site-header">
+        <div class="site-header-inner">
+          <a class="logo" href="index.html">selina</a>
+          <nav class="nav" aria-label="Primary">
+            <a href="index.html#work">works</a>
+            <a href="index.html#about">about</a>
+          </nav>
+          <!-- phones: hamburger → menu sheet (#menu-sheet) -->
+          <button
+            type="button"
+            class="menu-btn"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="menu-sheet"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <div class="work-layout">
+      <!-- Left: back link + section nav (active section turns black while scrolling) -->
+      <aside class="work-side">
+        <a class="back-link" href="index.html#work">
+          <svg
+            class="back-arrow"
+            width="24"
+            height="12"
+            viewBox="0 0 24 12"
+            aria-hidden="true"
+          >
+            <path
+              d="M23 6H1.5M6.5 1 1.5 6l5 5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>back</span>
+        </a>
+        <nav class="section-nav" aria-label="Case study sections">
+          <a href="#overview" data-spy="overview">overview</a>
+          <a href="#core-flows" data-spy="core-flows">core flows</a>
+          <a href="#decisions" data-spy="decisions">decisions</a>
+          <a href="#reflection" data-spy="reflection">reflection</a>
+        </nav>
+      </aside>
+
+      <main class="work-main">
+        <!-- ============ OVERVIEW ============ -->
+        <section id="overview" class="w-block w-overview">
+          <div class="w-title">
+            <h1>VendorHub, a platform to discover local vendors</h1>
+            <p class="w-category">Web Development, UI Design</p>
+          </div>
+          <div class="w-meta">
+            <div>
+              <h3>Role</h3>
+              <p>Web Developer<br />Web Designer</p>
+            </div>
+            <div>
+              <h3>Team</h3>
+              <p>2 Designers</p>
+            </div>
+            <div>
+              <h3>Time</h3>
+              <p>2026 Feb-Apr</p>
+            </div>
+          </div>
+          <div class="w-overview-text">
+            <h2 class="w-label">Overview</h2>
+            <p>
+              VendorHub is a location-based web platform for discovering
+              independent vendors, pop-up markets and micro-events near
+              Vancouver. Built with React on the frontend, Node.js and Express
+              on the backend, and MongoDB for data storage. It pulls event
+              listings from Vancouver Open Data and the Google Maps API. The
+              platform also supports three distinct user roles with different
+              levels of access.
+            </p>
+          </div>
+          <img
+            class="w-shot vh-hero"
+            src="assets/img/vendorhub-overview.png"
+            alt="VendorHub home page: Discover local vendors and markets"
+            width="2940"
+            height="1410"
+            decoding="async"
+          />
+          <!-- TODO: put the live site address in href -->
+          <a
+            class="vh-try"
+            href="https://vendorhub-page.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            >Try VendorHub</a
+          >
+        </section>
+
+        <!-- ============ CORE FLOWS (screen recordings) ============ -->
+        <section id="core-flows" class="w-block vh-flows-block">
+          <h2 class="w-label">Core flows</h2>
+          <div class="vh-flows">
+            <figure class="vh-flow">
+              <div class="vh-shot">
+                <video
+                  class="vh-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/img/vendorhub-discover-poster.webp"
+                  aria-label="Screen recording: Discovering local events"
+                >
+                  <source
+                    src="assets/video/vendorhub-discover.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+              <figcaption class="feature-text">
+                <h4>Discovering local events</h4>
+                <p>
+                  Without logging in, visitors can browse events near Vancouver
+                  in a card or map view.
+                </p>
+              </figcaption>
+            </figure>
+            <figure class="vh-flow">
+              <div class="vh-shot">
+                <video
+                  class="vh-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/img/vendorhub-filter-poster.webp"
+                  aria-label="Screen recording: Filter function"
+                >
+                  <source
+                    src="assets/video/vendorhub-filter.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+              <figcaption class="feature-text">
+                <h4>Filter function</h4>
+                <p>
+                  With the filtering function, visitors can find events that
+                  match their interests and fit their budget more easily.
+                </p>
+              </figcaption>
+            </figure>
+            <figure class="vh-flow">
+              <div class="vh-shot">
+                <video
+                  class="vh-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/img/vendorhub-host-poster.webp"
+                  aria-label="Screen recording: Hosting your own event!"
+                >
+                  <source
+                    src="assets/video/vendorhub-host.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+              <figcaption class="feature-text">
+                <h4>Hosting your own event!</h4>
+                <p>
+                  Registering as a user unlocks personalized features, including
+                  member-specific navigation and the ability to host, edit, or
+                  delete your own events. Registered members can also save
+                  vendors or events to their Favourites list for easy access
+                  later.
+                </p>
+              </figcaption>
+            </figure>
+            <!-- Saving your favourite section rn
+            <figure class="vh-flow">
+              <div class="vh-shot">
+                <video
+                  class="vh-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/img/vendorhub-flow-poster.webp"
+                  aria-label="Screen recording: Saving your favourite"
+                >
+                  <source
+                    src="assets/video/vendorhub-save.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+              <figcaption class="feature-text">
+                <h4>Saving your favourite</h4>
+                <p>
+                  Saving feature is also available only to registered members,
+                  allowing them to save vendors or events to their Favorites
+                  list for easy access later.
+                </p>
+              </figcaption>
+            </figure>
+            -->
+            <figure class="vh-flow">
+              <div class="vh-shot">
+                <video
+                  class="vh-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/img/vendorhub-admin-poster.webp"
+                  aria-label="Screen recording: Admin Panel"
+                >
+                  <source
+                    src="assets/video/vendorhub-admin.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+              <figcaption class="feature-text">
+                <h4>Admin Panel</h4>
+                <p>
+                  The admin panel gives administrators the authority to manage
+                  events and authenticated users, keeping the pages accurate and
+                  organized.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ============ DECISIONS ============ -->
+        <section id="decisions" class="w-block vh-decisions">
+          <h2 class="w-label">Decisions behind the platform</h2>
+          <figure class="vh-flow">
+            <img
+              class="w-shot vh-img"
+              src="assets/img/vendorhub-fetch.png"
+              alt="Explore Vendors page listing vendors from Vancouver Open Data"
+              width="2934"
+              height="1596"
+              decoding="async"
+            />
+            <figcaption class="feature-text">
+              <h4>Fetching data</h4>
+              <p>
+                VendorHub sources its listings from the City of Vancouver open
+                data portal, providing users with reliable and trustworthy
+                information.
+              </p>
+            </figcaption>
+          </figure>
+          <figure class="vh-flow">
+            <div class="vh-pair">
+              <img
+                class="w-shot vh-img"
+                src="assets/img/vendorhub-cards.png"
+                alt="Card view of vendor listings"
+                width="2942"
+                height="1297"
+                decoding="async"
+              />
+              <img
+                class="w-shot vh-img"
+                src="assets/img/vendorhub-map.png"
+                alt="Map view with listings pinned on a map of Vancouver"
+                width="2941"
+                height="1297"
+                decoding="async"
+              />
+            </div>
+            <figcaption class="feature-text">
+              <h4>Card view / Map view</h4>
+              <p>
+                VendorHub offers two ways to browse listings. Card view shows
+                listings in a grid, so users can compare details like category,
+                location and price at a glance. Map view pins every listing on
+                an interactive map with a side panel of event cards. Users can
+                see what's nearby without looking up each address in Google Maps
+                one by one.
+              </p>
+            </figcaption>
+          </figure>
+        </section>
+
+        <!-- ============ REFLECTION ============ -->
+        <section id="reflection" class="w-block w-reflection">
+          <h2 class="w-label">Reflection</h2>
+          <p class="w-body">
+            - Defining the access permissions for authenticated users,
+            unauthenticated users and administrators in advance made the coding
+            process more straightforward.
+          </p>
+        </section>
+
+        <!-- ============ NEXT PROJECT (home-page Cafcess card) ============ -->
+        <section class="w-block w-next">
+          <h2 class="w-label">Next Project</h2>
+          <article class="project r20 is-linked next-card">
+            <a
+              class="card-link"
+              href="cafcess.html"
+              aria-label="Next project: Cafcess"
+            ></a>
+            <div class="stage-wrap project-visual" aria-hidden="true">
+              <div class="stage" style="--fw: 1188; --fh: 558">
+                <div class="L magazine-wrap mockup">
+                  <div class="magazine">
+                    <img
+                      class="L mag-shadow"
+                      src="assets/img/cafcess-shadow.png"
+                      alt=""
+                    />
+                    <img
+                      class="L mag-body"
+                      src="assets/img/cafcess-body.png"
+                      alt=""
+                    />
+                    <div class="L mag-cover-wrap">
+                      <img
+                        class="mag-cover"
+                        src="assets/img/cafcess-cover.png"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-text">
+              <h3 class="w500">Cafcess</h3>
+              <p class="desc">
+                An editorial magazine exploring café culture and the stories
+                behind it.
+              </p>
+              <p class="tags">Editorial Design, Graphic Design</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="work-footer">
+      <!-- girl w/ pencil: shoes stand on the footer's top edge, pencil overlaps into it -->
+      <div class="girl-peek" aria-hidden="true">
+        <div class="girl-peek-art">
+          <div class="girl">
+            <img
+              class="L"
+              style="
+                left: 869.82px;
+                top: 639.02px;
+                width: 162.892px;
+                height: 166.998px;
+              "
+              src="assets/svg/girl-right-leg.svg"
+              alt=""
+            />
+            <img
+              class="L"
+              style="
+                left: 676px;
+                top: 636.93px;
+                width: 167.319px;
+                height: 169.091px;
+              "
+              src="assets/svg/girl-left-leg.svg"
+              alt=""
+            />
+            <img
+              class="L"
+              style="
+                left: 749.52px;
+                top: 465.81px;
+                width: 189.752px;
+                height: 201.423px;
+              "
+              src="assets/svg/girl-shirt.svg"
+              alt=""
+            />
+            <!-- face -->
+            <div class="L" style="inset: 39.77% 18.28% 40.56% 62.76%">
+              <img
+                class="fill"
+                src="assets/svg/girl-hair-textured.svg"
+                alt=""
+              />
+            </div>
+            <img
+              class="L"
+              style="left: 779px; top: 375px; width: 158px; height: 159px"
+              src="assets/svg/girl-face.svg"
+              alt=""
+            />
+            <div class="L" style="inset: 40.83% 20.14% 41.14% 64.62%">
+              <img
+                class="fill"
+                src="assets/svg/girl-bang-textured.svg"
+                alt=""
+              />
+            </div>
+            <img
+              class="L"
+              style="left: 812px; top: 470px; width: 90px; height: 34px"
+              src="assets/svg/girl-eyes.svg"
+              alt=""
+            />
+            <div class="L" style="inset: 56.67% 26.45% 41.67% 70.94%">
+              <img class="fill" src="assets/svg/girl-mouth.svg" alt="" />
+            </div>
+            <!-- pencil -->
+            <div
+              class="L pencil-box"
+              style="
+                left: 749.51px;
+                top: 349px;
+                width: 361.055px;
+                height: 471.081px;
+              "
+            >
+              <div class="pencil-tilt"><div class="pencil-body"></div></div>
+            </div>
+            <div
+              class="L pencil-box"
+              style="
+                left: 693.52px;
+                top: 746.68px;
+                width: 154.546px;
+                height: 158.489px;
+              "
+            >
+              <div class="pencil-tilt">
+                <img
+                  style="display: block; width: 109.683px; height: 115.931px"
+                  src="assets/svg/pencil-front.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <img
+              class="L"
+              style="
+                left: 828.99px;
+                top: 602.43px;
+                width: 147.257px;
+                height: 53.561px;
+              "
+              src="assets/svg/girl-hand.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="wf-panel">
+        <div class="wf-head">
+          <h2>Let's get in touch</h2>
+          <p>Want to learn more about project or just want to connect?</p>
+        </div>
+        <a class="send-btn send-btn--sm" href="mailto:selinachu456@gmail.com">
+          <span>Send Message</span>
+          <img src="assets/img/send-icon.png" alt="" />
+        </a>
+        <p class="wf-credit">Designed by Selina Chu</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/work.js"></script>
+  </body>
+</html>

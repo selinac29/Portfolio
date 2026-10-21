@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HomeScope | Selina Chu</title>
+    <meta
+      name="description"
+      content="HomeScope: an AI-powered housing app for international students in British Columbia."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,500&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="work.css" />
+  </head>
+  <body class="work-page">
+    <!-- Phone menu sheet (opened by the hamburger in the header) -->
+    <div
+      class="menu-sheet"
+      id="menu-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu"
+    >
+      <div class="menu-top">
+        <a class="menu-logo" href="index.html">selina</a>
+        <button type="button" class="menu-close" aria-label="Close menu">
+          <span></span><span></span>
+        </button>
+      </div>
+      <nav class="menu-links" aria-label="Menu">
+        <a href="index.html#work">works</a>
+        <a href="index.html#about">about</a>
+      </nav>
+    </div>
+    <!-- Header: same as the home page -->
+    <div class="work-header">
+      <header class="site-header">
+        <div class="site-header-inner">
+          <a class="logo" href="index.html">selina</a>
+          <nav class="nav" aria-label="Primary">
+            <a href="index.html#work">works</a>
+            <a href="index.html#about">about</a>
+          </nav>
+          <!-- phones: hamburger → menu sheet (#menu-sheet) -->
+          <button
+            type="button"
+            class="menu-btn"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="menu-sheet"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <div class="work-layout">
+      <!-- Left: back link + section nav (active section turns black while scrolling) -->
+      <aside class="work-side">
+        <a class="back-link" href="index.html#work">
+          <svg
+            class="back-arrow"
+            width="24"
+            height="12"
+            viewBox="0 0 24 12"
+            aria-hidden="true"
+          >
+            <path
+              d="M23 6H1.5M6.5 1 1.5 6l5 5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>back</span>
+        </a>
+        <nav class="section-nav" aria-label="Case study sections">
+          <a href="#overview" data-spy="overview">overview</a>
+          <a href="#solution" data-spy="solution">solution</a>
+          <a href="#design-decisions" data-spy="design-decisions"
+            >design decisions</a
+          >
+          <a href="#reflection" data-spy="reflection">reflection</a>
+        </nav>
+      </aside>
+
+      <main class="work-main">
+        <!-- ============ OVERVIEW ============ -->
+        <section id="overview" class="w-block w-overview">
+          <div class="w-title">
+            <h1>Home<b>Scope</b>, a housing app for international students</h1>
+            <p class="w-category">UI/UX Design, Prototype</p>
+          </div>
+          <div class="w-meta">
+            <div>
+              <h3>Role</h3>
+              <p>UI/UX Designer<br />Interactive Prototype</p>
+            </div>
+            <div>
+              <h3>Team</h3>
+              <p>3 Designers</p>
+            </div>
+            <div>
+              <h3>Time</h3>
+              <p>2024 Oct-Dec</p>
+            </div>
+          </div>
+          <div class="w-overview-text">
+            <h2 class="w-label">Overview</h2>
+            <p>
+              As a team of 3 designers, our goal was to create an app that helps
+              international students in British Columbia navigate the housing
+              market and find a reasonable and affordable place to live, while
+              integrating a mockup of an AI model to recommend housing based on
+              their preferences.
+            </p>
+          </div>
+        </section>
+
+        <!-- ============ PROBLEM ============ -->
+        <section class="w-block w-problem">
+          <p class="w-label">Problem</p>
+          <h2 class="w-key">
+            Finding a place to live in an unfamiliar environment can be
+            challenging
+          </h2>
+          <p class="w-body">
+            International students moving to a new place often lack local
+            knowledge of the rental market and neighbourhoods, leaving them
+            vulnerable to housing scams and unsure whether a neighbourhood is
+            right for them, turning the housing search into one of the most
+            stressful parts of settling into a new country.
+          </p>
+        </section>
+
+        <!-- ============ SOLUTION ============ -->
+        <section id="solution" class="w-block w-solution">
+          <p class="w-label">Solution</p>
+          <h2 class="w-key">
+            An AI-powered house search tool providing tailored recommendations
+          </h2>
+          <div class="features">
+            <div class="feature">
+              <div class="phone" aria-hidden="true">
+                <!-- screen recording under the phone frame (plays while on screen) -->
+                <video
+                  class="phone-screen phone-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/img/homescope-profile-screen.png"
+                  aria-label="Screen recording: Profile and preference setup"
+                >
+                  <source
+                    src="assets/video/homescope-profile.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <img
+                  class="phone-frame"
+                  src="assets/img/iphone-homescope.png"
+                  alt=""
+                />
+              </div>
+              <div class="feature-text">
+                <h4>Profile &amp; preference setup</h4>
+                <p>
+                  Set up an account and choose personal housing preferences
+                  before getting AI-generated recommendations.
+                </p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="phone" aria-hidden="true">
+                <!-- screen recording under the phone frame (plays while on screen) -->
+                <video
+                  class="phone-screen phone-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/img/homescope-ai-screen.png"
+                  aria-label="Screen recording: AI-generated recommendations"
+                >
+                  <source
+                    src="assets/video/homescope-ai.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <img
+                  class="phone-frame"
+                  src="assets/img/iphone-homescope.png"
+                  alt=""
+                />
+              </div>
+              <div class="feature-text">
+                <h4>AI-generated recommendations</h4>
+                <p>
+                  Personalized listings generated from the user's profile
+                  preferences.
+                </p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="phone" aria-hidden="true">
+                <!-- screen recording under the phone frame (plays while on screen) -->
+                <video
+                  class="phone-screen phone-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/img/homescope-search-poster.webp"
+                  aria-label="Screen recording: Search function"
+                >
+                  <source
+                    src="assets/video/homescope-search.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <img
+                  class="phone-frame"
+                  src="assets/img/iphone-homescope.png"
+                  alt=""
+                />
+              </div>
+              <div class="feature-text">
+                <h4>Explore beyond AI-Generated Results</h4>
+                <p>
+                  A warning message reminds users that the search results may
+                  not meet their criteria, without stopping them from exploring
+                  other options.
+                </p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="phone" aria-hidden="true">
+                <!-- screen recording under the phone frame (plays while on screen) -->
+                <video
+                  class="phone-screen phone-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/img/homescope-listing-poster.webp"
+                  aria-label="Screen recording: Listing details"
+                >
+                  <source
+                    src="assets/video/homescope-listing.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <img
+                  class="phone-frame"
+                  src="assets/img/iphone-homescope.png"
+                  alt=""
+                />
+              </div>
+              <div class="feature-text">
+                <h4>Listing details</h4>
+                <p>
+                  Tap into a listing to get more neighbourhood insights and BC
+                  support resources before committing to view the property.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ WHY IT MATTER ============ -->
+        <section class="w-block w-why">
+          <p class="w-label">Why it matters</p>
+          <h2 class="w-key">
+            Not only a house listing app, but a housing support platform
+          </h2>
+          <p class="w-body">
+            Most current house search platforms in BC only let users view,
+            filter and compare properties and most of them do not provide the
+            detailed neighbourhood insights that international students care
+            about.
+          </p>
+          <p class="w-body">
+            Our team wanted to make house searching in BC more intuitive for
+            international students by easing their anxiety through transparent
+            data and resources that actually matter to them, prioritizing and
+            organizing the information they need to know before signing any
+            contract.
+          </p>
+        </section>
+
+        <!-- ============ DESIGN DECISION ============ -->
+        <section id="design-decisions" class="w-block w-decision">
+          <p class="w-label">Design decisions</p>
+          <h2 class="w-key">Identified the best design for the user</h2>
+          <p class="w-body">
+            With the goal of making the house search process as intuitive as
+            possible, we iterated on multiple design solutions to map out the
+            layout and the system.
+          </p>
+          <img
+            class="decision-map"
+            src="assets/img/homescope-design-decision@3x.png"
+            width="773"
+            height="493"
+            alt="User flow and wireframe iterations for the HomeScope app"
+            loading="lazy"
+          />
+        </section>
+
+        <!-- ============ FINAL DESIGN INSIGHT 1 ============ -->
+        <section class="w-block w-insight">
+          <p class="w-label">Final design insight 1</p>
+          <h2 class="w-key">User-focused and empathetic design</h2>
+          <div class="shot-card">
+            <div class="phone phone--md" aria-hidden="true">
+              <img
+                class="phone-screen"
+                src="assets/img/homescope-insight1-screen.png"
+                alt=""
+              />
+              <img
+                class="phone-frame"
+                src="assets/img/iphone-homescope.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <p class="w-body">
+            The profile setup and preference input capture the details that
+            matter to international students. With these inputs the AI can
+            generate the most suitable housing recommendation for each user.
+            This ensures all the results align with the users' needs and
+            preferences.
+          </p>
+        </section>
+
+        <!-- ============ FINAL DESIGN INSIGHT 2 ============ -->
+        <section class="w-block w-insight">
+          <p class="w-label">Final design insight 2</p>
+          <h2 class="w-key">Priority recommendation</h2>
+          <div class="shot-card shot-card--crop">
+            <img
+              class="priority-shot"
+              src="assets/img/homescope-priority-screenshot.png"
+              alt="HomeScope home screen with the “AI generated for you” listings"
+              loading="lazy"
+            />
+          </div>
+          <p class="w-body">
+            Instead of simply sorting listings in proximity or chronological
+            order on the recommendation page, we placed the top three listings
+            under the "AI generated for you" section to show that these three
+            listings are the best matches based on the user profile preference.
+            We also provide the option to explore potential listings in
+            proximity order in case the user wants to find the closest property
+            to their institution.
+          </p>
+        </section>
+
+        <!-- ============ FINAL DESIGN INSIGHT 3 ============ -->
+        <section class="w-block w-insight3">
+          <p class="w-label">Final design insight 3</p>
+          <h2 class="w-key">Supportive neighbourhood insights</h2>
+          <div class="features features--cards">
+            <div class="feature feature--card">
+              <img
+                class="insight-card"
+                src="assets/img/homescope-insight3-warning.png"
+                alt="Listing screen with a warning that the price is abnormally high for the neighbourhood"
+                width="975"
+                height="1050"
+                loading="lazy"
+              />
+              <div class="feature-text">
+                <h4>Rental price alert</h4>
+                <p>
+                  Besides the essential details of the listing, the AI system
+                  compares approximate rental price trends throughout the year,
+                  so users to know whether the pricing is typical or abnormal
+                  for said area.
+                </p>
+              </div>
+            </div>
+            <div class="feature feature--card">
+              <img
+                class="insight-card"
+                src="assets/img/homescope-insight3-reviews.png"
+                alt="Reviews section of a listing with comments from previous renters"
+                width="975"
+                height="1140"
+                loading="lazy"
+              />
+              <div class="feature-text">
+                <h4>Reviews</h4>
+                <p>
+                  The review section provides insights from previous renters,
+                  giving users a bigger picture of the neighbourhood, easing the
+                  whole research process.
+                </p>
+              </div>
+            </div>
+            <div class="feature feature--card">
+              <img
+                class="insight-card"
+                src="assets/img/homescope-insight3-resources.png"
+                alt="Resources screen with tenancy regulations and renters insurance links"
+                width="975"
+                height="1140"
+                loading="lazy"
+              />
+              <div class="feature-text">
+                <h4>Tenancy resources</h4>
+                <p>
+                  Before users reach the end of a listing and feel they have
+                  reviewed all the key information, we wanted to provide the
+                  tenancy resources at the end of each listing. This helps
+                  newcomers succeed in the housing search process in BC since
+                  they may not be familiar with the tenancy laws when they start
+                  house searching.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ REFLECTION ============ -->
+        <section id="reflection" class="w-block w-reflection">
+          <h2 class="w-label">Reflection</h2>
+          <p class="w-body">
+            - Making the interactive prototype helped consolidate the user
+            journey and determine which interaction gives the best user
+            experience.
+          </p>
+          <p class="w-body">
+            - With a tight deadline, distributing the tasks based on each
+            individual's strengths matters more than individual output.
+          </p>
+        </section>
+
+        <!-- ============ NEXT PROJECT (same card as the home page) ============ -->
+        <section class="w-block w-next">
+          <h2 class="w-label">Next Project</h2>
+          <article class="project r30 is-linked next-card">
+            <a
+              class="card-link"
+              href="vendorhub.html"
+              aria-label="Next project: VendorHub"
+            ></a>
+            <div class="stage-wrap project-visual" aria-hidden="true">
+              <div class="stage" style="--fw: 1188; --fh: 558">
+                <div class="L browser mockup">
+                  <div class="chrome-tabbar">
+                    <div class="chrome-dots">
+                      <i style="background: #ec6b5e"></i
+                      ><i style="background: #f4bf4f"></i
+                      ><i style="background: #61c453"></i>
+                    </div>
+                    <div class="chrome-tab">
+                      <span class="chrome-tab-title">VendorHub</span>
+                      <svg
+                        class="chrome-tab-x"
+                        viewBox="0 0 10 10"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M1.5 1.5l7 7M8.5 1.5l-7 7"
+                          stroke="#3d4043"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </div>
+                    <img
+                      class="chrome-plus"
+                      src="assets/svg/chrome-plus.svg"
+                      alt=""
+                    />
+                    <img
+                      class="chrome-chevron"
+                      src="assets/svg/chrome-chevron.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chrome-nav">
+                    <img
+                      class="ci ci-back"
+                      src="assets/svg/chrome-back.svg"
+                      alt=""
+                    />
+                    <img
+                      class="ci ci-forward"
+                      src="assets/svg/chrome-back.svg"
+                      alt=""
+                      style="transform: translateY(-50%) scaleX(-1)"
+                    />
+                    <img
+                      class="ci ci-reload"
+                      src="assets/svg/chrome-refresh.svg"
+                      alt=""
+                    />
+                    <div class="chrome-search">
+                      <img
+                        class="ci ci-lock"
+                        src="assets/svg/chrome-padlock.svg"
+                        alt=""
+                      />
+                      <span class="chrome-url">vendorhub.com</span>
+                      <img
+                        class="ci ci-share"
+                        src="assets/svg/chrome-share.svg"
+                        alt=""
+                      />
+                      <img
+                        class="ci ci-star"
+                        src="assets/svg/chrome-star.svg"
+                        alt=""
+                      />
+                    </div>
+                    <img
+                      class="ci ci-ext"
+                      src="assets/svg/chrome-extension.svg"
+                      alt=""
+                    />
+                    <img
+                      class="ci ci-toggle"
+                      src="assets/svg/chrome-toggle.svg"
+                      alt=""
+                    />
+                    <img
+                      class="ci ci-more"
+                      src="assets/svg/chrome-more.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chrome-shadow"></div>
+                  <div class="browser-screen">
+                    <img src="assets/img/vendorhub-screen.png" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-text">
+              <h3 class="w500">VendorHub</h3>
+              <p class="desc">
+                A location-based web platform that allows users to discover
+                local vendors or events.
+              </p>
+              <p class="tags">Web Development, UI Design</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="work-footer">
+      <!-- girl w/ pencil: shoes stand on the footer's top edge, pencil overlaps into it -->
+      <div class="girl-peek" aria-hidden="true">
+        <div class="girl-peek-art">
+          <div class="girl">
+            <img
+              class="L"
+              style="
+                left: 869.82px;
+                top: 639.02px;
+                width: 162.892px;
+                height: 166.998px;
+              "
+              src="assets/svg/girl-right-leg.svg"
+              alt=""
+            />
+            <img
+              class="L"
+              style="
+                left: 676px;
+                top: 636.93px;
+                width: 167.319px;
+                height: 169.091px;
+              "
+              src="assets/svg/girl-left-leg.svg"
+              alt=""
+            />
+            <img
+              class="L"
+              style="
+                left: 749.52px;
+                top: 465.81px;
+                width: 189.752px;
+                height: 201.423px;
+              "
+              src="assets/svg/girl-shirt.svg"
+              alt=""
+            />
+            <!-- face -->
+            <div class="L" style="inset: 39.77% 18.28% 40.56% 62.76%">
+              <img
+                class="fill"
+                src="assets/svg/girl-hair-textured.svg"
+                alt=""
+              />
+            </div>
+            <img
+              class="L"
+              style="left: 779px; top: 375px; width: 158px; height: 159px"
+              src="assets/svg/girl-face.svg"
+              alt=""
+            />
+            <div class="L" style="inset: 40.83% 20.14% 41.14% 64.62%">
+              <img
+                class="fill"
+                src="assets/svg/girl-bang-textured.svg"
+                alt=""
+              />
+            </div>
+            <img
+              class="L"
+              style="left: 812px; top: 470px; width: 90px; height: 34px"
+              src="assets/svg/girl-eyes.svg"
+              alt=""
+            />
+            <div class="L" style="inset: 56.67% 26.45% 41.67% 70.94%">
+              <img class="fill" src="assets/svg/girl-mouth.svg" alt="" />
+            </div>
+            <!-- pencil -->
+            <div
+              class="L pencil-box"
+              style="
+                left: 749.51px;
+                top: 349px;
+                width: 361.055px;
+                height: 471.081px;
+              "
+            >
+              <div class="pencil-tilt"><div class="pencil-body"></div></div>
+            </div>
+            <div
+              class="L pencil-box"
+              style="
+                left: 693.52px;
+                top: 746.68px;
+                width: 154.546px;
+                height: 158.489px;
+              "
+            >
+              <div class="pencil-tilt">
+                <img
+                  style="display: block; width: 109.683px; height: 115.931px"
+                  src="assets/svg/pencil-front.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <img
+              class="L"
+              style="
+                left: 828.99px;
+                top: 602.43px;
+                width: 147.257px;
+                height: 53.561px;
+              "
+              src="assets/svg/girl-hand.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="wf-panel">
+        <div class="wf-head">
+          <h2>Let's get in touch</h2>
+          <p>Want to learn more about project or just want to connect?</p>
+        </div>
+        <a class="send-btn send-btn--sm" href="mailto:selinachu456@gmail.com">
+          <span>Send Message</span>
+          <img src="assets/img/send-icon.png" alt="" />
+        </a>
+        <p class="wf-credit">Designed by Selina Chu</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/work.js"></script>
+  </body>
+</html>
