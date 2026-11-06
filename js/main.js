@@ -355,10 +355,10 @@
   document.fonts?.ready.then(onResize);
 
   /* ---------- Contact form → selinachu456@gmail.com ----------
-     Sent with FormSubmit (https://formsubmit.co), no backend needed.
-     The first ever submission triggers an activation email to that inbox;
-     click "Activate Form" in it once and every later message is delivered. */
+     Sent with Web3Forms (https://web3forms.com), no backend needed.
+     The access key is public by design: it can only send mail to this inbox. */
   const OWNER_EMAIL = "selinachu456@gmail.com";
+  const WEB3FORMS_KEY = "709852b7-9a66-49a3-aaa4-42789e8ec00c";
   const form = document.getElementById("contact-form");
   if (form) {
     const status = form.querySelector(".form-status");
@@ -391,25 +391,24 @@
       if (form.elements._honey.value) return; // bot
 
       const data = {
+        access_key: WEB3FORMS_KEY,
         name: form.elements.name.value.trim(),
         email: form.elements.email.value.trim(),
         message: form.elements.message.value.trim(),
-        _replyto: form.elements.email.value.trim(),
-        _subject: `Portfolio message from ${form.elements.name.value.trim()}`,
-        _template: "table",
-        _captcha: "false",
+        subject: `Portfolio message from ${form.elements.name.value.trim()}`,
+        from_name: "selinachu.com",
       };
       button.disabled = true;
       const oldLabel = label.textContent;
       label.textContent = "Sending…";
       try {
-        // plain form data (no JSON content type), so the browser sends it without a CORS preflight
-        const body = new FormData();
-        Object.entries(data).forEach(([k, v]) => body.append(k, v));
-        const res = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
+        const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
-          headers: { Accept: "application/json" },
-          body,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(data),
         });
         const json = await res.json().catch(() => ({}));
         if (!res.ok || String(json.success) !== "true")
