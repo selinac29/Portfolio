@@ -414,7 +414,7 @@
         if (!res.ok || String(json.success) !== "true")
           throw new Error(json.message || res.statusText);
         status.textContent =
-          "Thanks! Your message is on its way — I’ll get back to you soon.";
+          "Thanks! Your message has been sent.";
         status.classList.add("ok");
         form.reset();
         fields.forEach((f) => f.removeAttribute("aria-invalid"));
