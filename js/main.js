@@ -403,13 +403,13 @@
       const oldLabel = label.textContent;
       label.textContent = "Sending…";
       try {
+        // plain form data (no JSON content type), so the browser sends it without a CORS preflight
+        const body = new FormData();
+        Object.entries(data).forEach(([k, v]) => body.append(k, v));
         const res = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(data),
+          headers: { Accept: "application/json" },
+          body,
         });
         const json = await res.json().catch(() => ({}));
         if (!res.ok || String(json.success) !== "true")
